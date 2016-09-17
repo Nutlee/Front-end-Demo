@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>placeholder-validation</title>
+    <link rel="stylesheet" href="../css/style.min.css">
+    <style>
+		.warn input {
+			border-color: red; 
+		}
+		.warn span {
+			color: red !important;
+		}
+    </style>
+</head>
+<body>
+	<div class="wrap">
+		<h1 id="title">验证表单</h1>
+		<form id="myform" action="">
+			<div class="form-row">
+				<input id="phone" type="text">
+			</div>
+			<div class="form-row">
+				<input id="password" type="password">
+			</div>
+			<div class="form-row">
+				<button type="button">验证</button>
+			</div>
+		</form>
+	</div>
+	<script src="../lib/js/jquery.min.js"></script>
+	<script src="../js/validation-placeholder.min.js"></script>
+	<script>
+		$(function(){
+			var $phone = $('#phone').placeholder({
+				text: "手机号"
+			});
+			var $pwd = $('#password').placeholder({
+				text: "密码"
+			});
+			$('#myform').on('keyup','input',function(){
+				$(this).placeholder('removeWarn');
+			}).on('click', 'button', function(event) {
+				event.preventDefault();
+				if ( !/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test($phone.val())) {
+					$phone.placeholder('showWarn','请输入合法手机号码');
+					return;
+				} 
+				if ($pwd !== '111111') {
+					$pwd.placeholder('showWarn','密码错误，正确密码为111111');
+					return;
+				}
+			});
+		});
+	</script>
+</body>
+</html>
