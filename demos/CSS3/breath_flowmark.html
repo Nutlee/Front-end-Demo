@@ -4,11 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-/*		@keyframes pound {
-		  from { transform: none; }
-		  to { transform: scale(2);}
-		}*/
-
 		body {
 			padding: 100px;
 		}
@@ -57,7 +52,7 @@
 			line-height: 200px;
 		}
 		
-		.animation20 {
+		.animation2 {
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -65,16 +60,14 @@
 			width: 100px;
 			height: 100px;
 			margin: auto;
-			animation: animation20 4s linear infinite normal;
+			animation: animation2 4s linear infinite normal;
 		}
-		@keyframes animation20 {
+		.animation20 {
+		}
+		@keyframes animation2 {
 		    0% {
-		        transform: scale(0);
-		        opacity: 0;
-		    } 
-		    2% {
-		    	transform: scale(1);
-		    	opacity: 1;
+		    	/*transform: scale(1);*/
+		    	/*opacity: 1;*/
 		    }
 	      	100% {
 	        	transform: scale(4);
@@ -82,37 +75,13 @@
 	        }	
 		}
 		.animation21 {
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			width: 100px;
-			height: 100px;
-			margin: auto;
-			/*animation-duration: 6s;*/
-			animation: animation20 4s 1s linear infinite normal;
+			animation-delay: 1s;
 		}	
 		.animation22 {
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			width: 100px;
-			height: 100px;
-			margin: auto;
-			/*animation-duration: 8s;*/
-			animation: animation20 4s 2s linear infinite normal;
+			animation-delay: 2s;
 		}
 		.animation23 {
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			width: 100px;
-			height: 100px;
-			margin: auto;
-			/*animation-duration: 8s;*/
-			animation: animation20 4s 3s linear infinite normal;
+			animation-delay: 3s;
 		}		
 	
 		.fixedcirle {
@@ -151,14 +120,7 @@
 	        	/*opacity: 0.5;*/
 	        }		      
 		}			
-/*		.circular1 {
-			position: absolute;
-			width: 200px;
-			height: 200px;
-			border-radius: 100px;
-			background: #076d7d;
-			animation: pound 2s infinite;
-		}*/
+
 	</style>
 </head>
 <body>
@@ -170,10 +132,10 @@
 	</div>
 	<h2>动画2</h2>
 	<div class="wrap">
-		<div class="circle animation20"></div>
-		<div class="circle animation21"></div>
-		<div class="circle animation22"></div>
-		<div class="circle animation23"></div>
+		<div class="circle animation2 animation20"></div>
+		<div class="circle animation2 animation21"></div>
+		<div class="circle animation2 animation22"></div>
+		<div class="circle animation2 animation23"></div>
 		<div class="fixedcirle"></div>
 	</div>
 </body>
