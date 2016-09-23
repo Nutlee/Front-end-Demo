@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+/*		@keyframes pound {
+		  from { transform: none; }
+		  to { transform: scale(2);}
+		}*/
+
+		body {
+			padding: 100px;
+		}
+		h2 {
+			float: left;
+		}
+		.wrap {
+			position: relative;
+			float: left;
+			width: 200px;
+			height: 200px;
+			margin: 100px;
+		}
+		.circle {
+		    position: absolute;
+		    width: 200px;
+		    height: 200px;
+		    background: radial-gradient(rgba(255, 0, 0, 0), #54bfd0);
+		    border-radius: 50%;
+		    animation: scale 2s ease infinite normal;
+		}
+		.circle1 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		    width: 100px;
+		    height: 100px;
+		    border-radius: 50%;
+		    /*background: #076d7d;*/
+		    background: radial-gradient(rgba(255, 0, 0, 0), #076d7d);
+		    animation: scaleout 1s ease-in-out infinite alternate;
+		}
+		.text {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+/*			width: 150px;
+			height: 20px;*/
+			text-align: center;
+			line-height: 200px;
+		}
+		
+		.animation20 {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			margin: auto;
+			animation: animation20 4s linear infinite normal;
+		}
+		@keyframes animation20 {
+		    0% {
+		        transform: scale(0);
+		        opacity: 0;
+		    } 
+		    2% {
+		    	transform: scale(1);
+		    	opacity: 1;
+		    }
+	      	100% {
+	        	transform: scale(4);
+	        	opacity: 0;
+	        }	
+		}
+		.animation21 {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			margin: auto;
+			/*animation-duration: 6s;*/
+			animation: animation21 4s 1s linear infinite normal;
+		}
+		@keyframes animation21 {
+		    0% {
+		        transform: scale(1);
+		        opacity: 1;
+		    } 
+	      	100% {
+	        	transform: scale(4);
+	        	opacity: 0;
+	        }	
+		}		
+		.animation22 {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			margin: auto;
+			/*animation-duration: 8s;*/
+			animation: animation22 4s 2s linear infinite normal;
+		}
+		@keyframes animation22 {
+		    0% {
+		        transform: scale(1);
+		        opacity: 1;
+		    } 
+	      	100% {
+	        	transform: scale(4);
+	        	opacity: 0;
+	        }	
+		}		
+		.fixedcirle {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			margin: auto;
+			border-radius: 50%;
+			/*background: radial-gradient(rgba(255, 0, 0, 0), #076d7d);*/
+			background: #076d7d;
+		}
+		@keyframes scale {
+		    0% {
+		        transform: scale(0);
+		        opacity: 0;
+		    } 
+		    8% {
+		        transform: scale(.5);
+		        opacity: 1;
+		     }
+	      	100% {
+	        	transform: scale(2);
+	        	opacity: 0;
+	        }		      
+		}	
+		@keyframes scaleout {
+		    0% {
+		        transform: scale(1);
+		    } 
+	      	100% {
+	        	transform: scale(2);
+	        	/*opacity: 0.5;*/
+	        }		      
+		}			
+/*		.circular1 {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			border-radius: 100px;
+			background: #076d7d;
+			animation: pound 2s infinite;
+		}*/
+	</style>
+</head>
+<body>
+	<h2>动画1</h2>
+	<div class="wrap">
+		<div class="circle"></div>
+		<div class="circle1"></div>
+		<span class="text">正在等待司机接单...</span>
+	</div>
+	<h2>动画2</h2>
+	<div class="wrap">
+		<div class="circle animation20"></div>
+		<div class="circle animation21"></div>
+		<div class="circle animation22"></div>
+		<div class="fixedcirle"></div>
+	</div>
+</body>
+</html>
