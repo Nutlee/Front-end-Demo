@@ -7,8 +7,8 @@
 		body {
 			padding: 100px;
 		}
-		h2 {
-			float: left;
+		span {
+			display: inline-block;
 		}
 		.wrap {
 			position: relative;
@@ -23,6 +23,9 @@
 		    height: 200px;
 		    background: radial-gradient(#fff, #54bfd0);
 		    border-radius: 50%;
+		    -webkit-animation: scale 2s ease infinite normal;
+		    -moz-animation: scale 2s ease infinite normal;
+		    -o-animation: scale 2s ease infinite normal;
 		    animation: scale 2s ease infinite normal;
 		}
 		.circle1 {
@@ -37,6 +40,9 @@
 		    border-radius: 50%;
 		    /*background: #076d7d;*/
 		    background: radial-gradient(#fff, #076d7d);
+		    -webkit-animation: scaleout 1s ease-in-out infinite alternate;
+		    -moz-animation: scaleout 1s ease-in-out infinite alternate;
+		    -o-animation: scaleout 1s ease-in-out infinite alternate;
 		    animation: scaleout 1s ease-in-out infinite alternate;
 		}
 		.text {
@@ -60,6 +66,9 @@
 			width: 100px;
 			height: 100px;
 			margin: auto;
+			-webkit-animation: animation2 4s linear infinite normal;
+			-moz-animation: animation2 4s linear infinite normal;
+			-o-animation: animation2 4s linear infinite normal;
 			animation: animation2 4s linear infinite normal;
 		}
 		.animation20 {
@@ -75,12 +84,21 @@
 	        }	
 		}
 		.animation21 {
+			-webkit-animation-delay: 1s;
+			-moz-animation-delay: 1s;
+			-o-animation-delay: 1s;
 			animation-delay: 1s;
 		}	
 		.animation22 {
+			-webkit-animation-delay: 2s;
+			-moz-animation-delay: 2s;
+			-o-animation-delay: 2s;
 			animation-delay: 2s;
 		}
 		.animation23 {
+			-webkit-animation-delay: 3s;
+			-moz-animation-delay: 3s;
+			-o-animation-delay: 3s;
 			animation-delay: 3s;
 		}		
 	
@@ -97,6 +115,48 @@
 			/*background: radial-gradient(rgba(255, 0, 0, 0), #076d7d);*/
 			background: #076d7d;
 		}
+		@-webkit-keyframes scale {
+		    0% {
+		        -webkit-transform: scale(0);
+		        opacity: 0;
+		    } 
+		    8% {
+		        -webkit-transform: scale(.5);
+		        opacity: 1;
+		     }
+	      	100% {
+	        	-webkit-transform: scale(2);
+	        	opacity: 0;
+	        }		      
+		}			
+		@-moz-keyframes scale {
+		    0% {
+		        -moz-transform: scale(0);
+		        opacity: 0;
+		    } 
+		    8% {
+		        -moz-transform: scale(.5);
+		        opacity: 1;
+		     }
+	      	100% {
+	        	-moz-transform: scale(2);
+	        	opacity: 0;
+	        }		      
+		}			
+		@-o-keyframes scale {
+		    0% {
+		        -o-transform: scale(0);
+		        opacity: 0;
+		    } 
+		    8% {
+		        -o-transform: scale(.5);
+		        opacity: 1;
+		     }
+	      	100% {
+	        	-o-transform: scale(2);
+	        	opacity: 0;
+	        }		      
+		}			
 		@keyframes scale {
 		    0% {
 		        transform: scale(0);
@@ -111,6 +171,33 @@
 	        	opacity: 0;
 	        }		      
 		}	
+		@-webkit-keyframes scaleout {
+		    0% {
+		        -webkit-transform: scale(1);
+		    } 
+	      	100% {
+	        	-webkit-transform: scale(2);
+	        	/*opacity: 0.5;*/
+	        }		      
+		}			
+		@-moz-keyframes scaleout {
+		    0% {
+		        -moz-transform: scale(1);
+		    } 
+	      	100% {
+	        	-moz-transform: scale(2);
+	        	/*opacity: 0.5;*/
+	        }		      
+		}			
+		@-o-keyframes scaleout {
+		    0% {
+		        -o-transform: scale(1);
+		    } 
+	      	100% {
+	        	-o-transform: scale(2);
+	        	/*opacity: 0.5;*/
+	        }		      
+		}			
 		@keyframes scaleout {
 		    0% {
 		        transform: scale(1);
@@ -119,24 +206,28 @@
 	        	transform: scale(2);
 	        	/*opacity: 0.5;*/
 	        }		      
-		}			
+		}					
 
 	</style>
 </head>
 <body>
-	<h2>动画1</h2>
-	<div class="wrap">
-		<div class="circle"></div>
-		<div class="circle1"></div>
-		<span class="text">正在等待司机接单...</span>
-	</div>
-	<h2>动画2</h2>
-	<div class="wrap">
-		<div class="circle animation2 animation20"></div>
-		<div class="circle animation2 animation21"></div>
-		<div class="circle animation2 animation22"></div>
-		<div class="circle animation2 animation23"></div>
-		<div class="fixedcirle"></div>
-	</div>
+	<span>
+		<h2>动画1</h2>
+		<div class="wrap">
+			<div class="circle"></div>
+			<div class="circle1"></div>
+			<span class="text">正在等待司机接单...</span>
+		</div>
+	</span>
+	<span>
+		<h2>动画2</h2>
+		<div class="wrap">
+			<div class="circle animation2 animation20"></div>
+			<div class="circle animation2 animation21"></div>
+			<div class="circle animation2 animation22"></div>
+			<div class="circle animation2 animation23"></div>
+			<div class="fixedcirle"></div>
+		</div>
+	</span>
 </body>
 </html>
