@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<title>转盘抽奖</title>
+	<style>
+		html,body {
+			width: 100%;
+		}
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		h1 {
+			text-align: center;
+			font-size: .32rem;
+		}
+		.wrap {
+			position: relative;
+			margin: 0 auto;
+			height: 6rem;
+			width: 100%;
+		}
+		.canvas {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+		#canvas1 {
+			top: -.27rem;
+			cursor: pointer;
+		}
+		.container {
+			margin-top: .2rem;
+			text-align: center;
+		}
+	</style>
+	<script>
+	(function (doc, win) {
+	    var docEl = doc.documentElement,
+	        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	        recalc = function () {
+	            var clientWidth = docEl.clientWidth;
+	            if (!clientWidth) return;
+	            if(clientWidth>=750){
+	                docEl.style.fontSize = '100px';
+	            }else{
+	                docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	            }
+	        };
+
+	    if (!doc.addEventListener) return;
+	    win.addEventListener(resizeEvt, recalc, false);
+	    doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+</head>
+<body>
+	<h1>转盘抽奖</h1>
+	<div class="wrap">
+	<!-- width="500px" height="500px" -->
+		<canvas class="canvas canvas-bg" id="canvas0"></canvas>
+	<!-- width='133px' height='179px' -->
+		<canvas class="canvas canvas-btn" id="canvas1"></canvas>
+	</div>
+	<div class="container">
+		<label for=""指定抽出奖项</label>
+		<select name="" id="awardlevel">
+			<option value="-1">随机</option>
+			<option value="0">一等奖</option>
+			<option value="1">二等奖</option>
+			<option value="2">三等奖</option>
+			<option value="3">四等奖</option>
+			<option value="4">五等奖</option>
+			<option value="5">六等奖</option>
+		</select>
+	</div>
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/turntable.js"></script>
+	<script>
+		$(function(){
+			var windowWidth = $(window).width();
+			var canvasBgWidth;
+			if (windowWidth>750) {
+				canvasBgWidth = 750;
+			} else if (windowWidth<320) {
+				canvasBgWidth = 320;
+			} else {
+				canvasBgWidth = windowWidth * 500/750;
+			}
+			var canvasBtnWidth = canvasBgWidth * 133/500;
+			var canvasBtnHeight = canvasBgWidth * 179/500;
+			$('.canvas-bg').attr({
+				width: canvasBgWidth+'px',
+				height: canvasBgWidth+'px'
+			});			
+			$('.canvas-btn').attr({
+				width: canvasBtnWidth+'px',
+				height: canvasBtnHeight+'px'
+			});
+
+			var turntable = $('.wrap').turntable({
+				turntableBgSelector: '#canvas0',
+				turntableBtnSelector: '#canvas1',
+				bgWidth: canvasBgWidth,
+				btnRect: [canvasBtnWidth,canvasBtnHeight],
+				ease: 'easeOutQuint',
+				duration: 8000,
+				sections: [
+					{
+						name: 'a',
+						text: '一等奖',
+						color: '#fff',
+						font:''
+					},
+					{
+						name: 'b',
+						text: '二等奖',
+						color: '#FFF4D6',
+						font:''
+					},
+					{
+						name: 'c',
+						text: '三等奖',
+						color: '#fff',
+						font:''
+					},
+					{
+						name: 'c',
+						text: '四等奖',
+						color: '#fff4d6',
+						font:''
+					},
+					{
+						name: 'c',
+						text: '五等奖',
+						color: '#fff',
+						font:''
+					},
+					{
+						name: 'c',
+						text: '六等奖',
+						color: '#fff4d6',
+						font:''
+					}
+				],
+				onSuccess: function(data,index) {
+					console.log('data',data);
+					console.log('index',index);
+				}
+			});
+			$('#canvas1').on('click', function(event) {
+				event.preventDefault();
+				var awardlevel = $('#awardlevel').val();
+				if (awardlevel < 0 ) {
+					awardlevel = Math.round(Math.random() * 5);
+				}
+				turntable.turntable('animate',awardlevel);
+			});
+			// console.log(turntable);
+		});
+	</script>
+</body>
+</html>
