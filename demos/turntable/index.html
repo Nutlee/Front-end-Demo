@@ -17,6 +17,10 @@
 			padding: 0;
 			margin: 0;
 		}
+		.box {
+			max-width: 750px;
+			margin: 0 auto;
+		}
 		h1 {
 			text-align: center;
 			font-size: .32rem;
@@ -65,24 +69,26 @@
 	</script>
 </head>
 <body>
-	<h1>转盘抽奖</h1>
-	<div class="wrap">
-	<!-- width="500px" height="500px" -->
-		<canvas class="canvas canvas-bg" id="canvas0"></canvas>
-	<!-- width='133px' height='179px' -->
-		<canvas class="canvas canvas-btn" id="canvas1"></canvas>
-	</div>
-	<div class="container">
-		<label for=""指定抽出奖项</label>
-		<select name="" id="awardlevel">
-			<option value="-1">随机</option>
-			<option value="0">一等奖</option>
-			<option value="1">二等奖</option>
-			<option value="2">三等奖</option>
-			<option value="3">四等奖</option>
-			<option value="4">五等奖</option>
-			<option value="5">六等奖</option>
-		</select>
+	<div class="box">
+		<h1>转盘抽奖</h1>
+		<div class="wrap">
+		<!-- width="500px" height="500px" -->
+			<canvas class="canvas canvas-bg" id="canvas0"></canvas>
+		<!-- width='133px' height='179px' -->
+			<canvas class="canvas canvas-btn" id="canvas1"></canvas>
+		</div>
+		<div class="container">
+			<label for=""指定抽出奖项</label>
+			<select name="" id="awardlevel">
+				<option value="-1">随机</option>
+				<option value="0">一等奖</option>
+				<option value="1">二等奖</option>
+				<option value="2">三等奖</option>
+				<option value="3">四等奖</option>
+				<option value="4">五等奖</option>
+				<option value="5">六等奖</option>
+			</select>
+		</div>
 	</div>
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/turntable.js"></script>
@@ -91,7 +97,7 @@
 			var windowWidth = $(window).width();
 			var canvasBgWidth;
 			if (windowWidth>750) {
-				canvasBgWidth = 750;
+				canvasBgWidth = 500;
 			} else if (windowWidth<320) {
 				canvasBgWidth = 320;
 			} else {

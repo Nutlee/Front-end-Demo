@@ -44,7 +44,7 @@
 		    if (s in style) return '-'+prefix.toLowerCase()+'-';
 		}
 	};
-	console.log(prefix('transform'));
+	// console.log(prefix('transform'));
 	function Turntable(ele,options) {
 		this.element = $(ele);
 		this.arc = 0;
@@ -113,7 +113,7 @@
 				btnWindowHRatio: btnHeight/windowWidth,
 				textRadiusbgWidthRatio: 150/500
 			};
-			console.log('750',this.rect.bgWindowRatio);
+			// console.log('750',this.rect.bgWindowRatio);
 		},
 		drawCanvas: function(windowWidth) {
 			var bgctx = this.turntableBgctx  = this.turntableBg[0].getContext("2d"),
@@ -130,7 +130,7 @@
 				radius = windowWidth ? bgWidth/2:this.rect.center.r;
 				textRadius = windowWidth? this.rect.textRadiusbgWidthRatio*bgWidth :this.rect.textRadius;
 
-			console.log("arc",arc);
+			// console.log("arc",arc);
 			bgctx.clearRect(0,0,bgWidth,bgHeight);
 			var bgImg = new Image();
 			bgImg.onload = function() {
@@ -143,7 +143,7 @@
 					// 传到每个 section 里
 					// TO DO
 
-					console.log(angle);
+					// console.log(angle);
 					bgctx.fillStyle = sections[i].color;
 					bgctx.beginPath();
 
@@ -194,7 +194,7 @@
 			if (this._animating) {
 				return;
 			}
-			console.log('点击了旋转index',index);
+			// console.log('点击了旋转index',index);
 			callback = callback || this.options.onSuccess;
 			// var angleDeg = 0.75*360 - ( arc/2 + index * arc)/Math.PI*180 + 720;
 
@@ -243,8 +243,11 @@
 			if ( !instance ) {
 				instance = new Turntable(this,options);
 				instance.init();
+				var timer;
 				$(window).on('resize', function(event) {
-					setTimeout(function(){
+					clearTimeout(timer);
+					timer = setTimeout(function(){
+						console.log('执行了');
 						var windowWidth = $(window).width();
 						var canvasBgWidth;
 						if (windowWidth>750) {
@@ -275,7 +278,7 @@
 						// 	windowWidth = 320;
 						// } 
 						instance.drawCanvas(windowWidth);
-					}, 200);
+					}, 17);
 				});
 				$this.data(name, instance);
 			}
